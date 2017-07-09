@@ -1,6 +1,6 @@
 class Glass
 
-  LUKE_WARM = 37
+  LUKE_WARM = 80
 
   attr_accessor :inside, :temperature, :errors
 
