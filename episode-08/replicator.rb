@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   attr_reader :plate
@@ -12,6 +14,7 @@ class Replicator
 
   def connect_to_power
     @power = @enterprise.reactor.on
+
   end
 
   def replicate(recipe)
@@ -24,6 +27,7 @@ class Replicator
   end
 
   def retrieve_glass
+    binding.pry
     @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
   end
 

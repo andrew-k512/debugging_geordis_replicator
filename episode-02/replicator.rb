@@ -1,5 +1,7 @@
 class Replicator
 
+## tummy is the name for one of the parts of the Replicator
+
   attr_reader :plate
 
   def initialize(enterprise)
@@ -14,6 +16,10 @@ class Replicator
     @power = @enterprise.reactor.on
   end
 
+# good place to start testing the replicate method
+#Is anything getting passed along to these variables?
+#In putting pry in the method below, we identified that retrieve_glass is
+# the problem.
   def replicate(recipe)
     @recipe = recipe
     retrieve_glass
@@ -23,8 +29,17 @@ class Replicator
     transport_glass_to_replicator_plate
   end
 
+# 1. So we move the binding.pry to retrieve_glass below.
+# 2. So we figure out what @enterprise is by putting it in pry.
+# 3. We can check that the class of @enterprise.transporter is by putting in
+# @enterprise.transporter.class in pry.
+# 4. Process of debugging with pry is narrowing down where it is happening.
+# 5. Go to transporter.rb to continue reading notes. 
   def retrieve_glass
-    @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
+    @enterprise.transporter.energize(
+    obj: @enterprise.cupboard.find_glass,
+    from: @enterprise.cupboard.shelf,
+    to: @tummy)
   end
 
   def glass_in_tummy

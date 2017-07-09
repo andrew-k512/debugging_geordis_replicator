@@ -14,6 +14,10 @@ class Replicator
     @power = @enterprise.reactor.on
   end
 
+# 1. We put binding.pry at beginning of replicate method, and test values one
+# by one in pry starting with @replicate.
+# 2. We determine the problem is with retrieve_glass so we go to its method.
+# by testing with pry. retrieve_glass came back as nil?
   def replicate(recipe)
     @recipe = recipe
     retrieve_glass
@@ -23,6 +27,8 @@ class Replicator
     transport_glass_to_replicator_plate
   end
 
+# 3. We determine the problem is with the transporter and energize method, so we go
+# to the transporter.
   def retrieve_glass
     @enterprise.transporter.energize(obj: @enterprise.cupboard.find_glass, from: @enterprise.cupboard.shelf, to: @tummy)
   end
@@ -39,6 +45,10 @@ class Replicator
     end
   end
 
+# 1. We put a binding.pry in mix, and noticed the glass_in_tummy @contents array
+# has nil values, so that means there are no contents in the glass.
+# 2. Next we moved the binding.pry below line 55. We checked that line 55 evaluated
+# to true(3) and it did. ((((can't take anymore notes too hard to focus))))
   def mix
     return unless glass_in_tummy
 

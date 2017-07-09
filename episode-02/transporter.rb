@@ -9,7 +9,9 @@ class Transporter
   def connect_to_power
     @power = @enterprise.reactor.on
   end
-
+# 1. The next step would be to put binding.pry in th energize method.
+# 2. Check the @power instance variable.
+# 3. We determined the problem was with the reactor.on method in the reactor file.
   def energize(obj:, from:, to:)
     return unless @power
 

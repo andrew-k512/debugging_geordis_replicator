@@ -10,8 +10,11 @@ class Transporter
     @power = @enterprise.reactor.on
   end
 
+# We put pry in the energize method before the first return. It looks different than
+# energize method in other files.
   def energize(obj:, from:, to:)
-    return
+
+    # return
 
     if @enterprise.reactor.draw_power(3)
       to.contents << from.contents.delete(obj)
