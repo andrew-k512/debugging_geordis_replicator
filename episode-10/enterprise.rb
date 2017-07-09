@@ -8,7 +8,6 @@ class Enterprise
     @cupboard    =    Cupboard.new
     @pantry      =      Pantry.new
     @replicator  =  Replicator.new(self)
-    @reactor.turn_off
   end
 
 end
