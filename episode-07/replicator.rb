@@ -20,6 +20,7 @@ class Replicator
     retrieve_glass
     mix
     adjust_temperature
+    transport_ingredients_to_glass
     transport_glass_to_replicator_plate
   end
 
@@ -50,6 +51,7 @@ class Replicator
 
   def adjust_temperature
     return unless glass_in_tummy
+
 
     glass_in_reactor_core = @enterprise.transporter.energize(obj: glass_in_tummy, from: @tummy, to: @enterprise.reactor.core)
 
